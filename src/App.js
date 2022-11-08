@@ -1,7 +1,8 @@
 import './App.css';
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Nav from './Assets/Nav'
+// import Nav from './Assets/Nav';
+import Nav1 from './Assets/Nav1';
 import Home from './Pages/Home';
 import Products from './Pages/Products';
 import Notfound from './Pages/Notfound';
@@ -14,7 +15,7 @@ function App() {
   return (
     <BrowserRouter>
     <UserContextProvider>
-        <Nav />
+        <Nav1 />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />
