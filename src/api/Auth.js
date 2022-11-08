@@ -10,7 +10,7 @@ const signup = async (user) => {
     return (response)
 }
 const login = async (user) => {
-    const request = await fetch(``, {
+    const request = await fetch(`${process.env.REACT_APP_BACKEND}API/auth/Login`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -19,7 +19,9 @@ const login = async (user) => {
     })
 
     const response = await request.json()
-    console.log(response)
-    return response
+    if(response ==='Wrong Password' || response ==='Wrong Username'){
+        console.log("Invalid")
+    }
+    return response.accessToken
 }
 export { login,signup }

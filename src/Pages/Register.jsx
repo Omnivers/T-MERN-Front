@@ -38,7 +38,6 @@ export default function Register() {
     onSubmit: (values) => {
           signup(values)
           navigate('/Login')
-          
     },
 })
 

@@ -13,32 +13,35 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import { Link} from 'react-router-dom';
+import { useState } from 'react';
 
 const Login = () => {
+    const [wrong,setWrong]=useState()
     const navigate = useNavigate()
     const { setToken } = useContext(UserContext)
 
     const formik = useFormik({
         initialValues: {
-            email: '',
+            username: '',
             password: '',
         },
         validationSchema: Yup.object({
-            email: Yup.string()
-                .required('Your email is required')
-                .email('Your email is invalid'),
+            username: Yup.string()
+            .required('Your username is required')
+            .min(3, 'username trop court'),
             password: Yup.string()
                 .required('Password is required')
                 .min(8, 'password trop court')
                 .max(30),
         }),
         onSubmit: async (values) => {
-            // const { token } = await login(values)
-            // setToken(token)
-            // if (token) {
-            //     navigate('/Products')
-            // }
-            console.log(values)   
+          const  token = await login(values)
+          setToken(token)
+          if (token) {
+              navigate('/')
+          }else{
+            setWrong("Wrong credentials ! Try again or create a new account")
+          }
         },
     })
     return (
@@ -59,12 +62,12 @@ const Login = () => {
             Login
           </Typography>
           <Box component="form" onSubmit={formik.handleSubmit} noValidate sx={{ mt: 1 }}>
-            <Input
-                    type="email"
-                    name="email"
-                    placeholder="Email"
+          <Input
+                    type="text"
+                    name="username"
+                    placeholder="Username"
                     handleChange={formik.handleChange}
-                    error={formik.errors.email}
+                    error={formik.errors.username}
                 />
             <Input
                     type="password"
@@ -87,6 +90,11 @@ const Login = () => {
               Sign In
             </Button>
           </Box>
+          <Typography
+              variant="h8"
+              color="red"
+              gutterBottom
+            > {wrong} </Typography>
         </Box>
       </Container>
     )
