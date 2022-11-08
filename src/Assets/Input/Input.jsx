@@ -1,8 +1,9 @@
 import TextField from '@mui/material/TextField';
+import Typography from '@mui/material/Typography';
 
 const Input = ({ handleChange, type, name, value, placeholder, error }) => {
     return (
-        <div className="pt-10">
+        <>
             <TextField
                 margin="normal"
                 required
@@ -13,8 +14,12 @@ const Input = ({ handleChange, type, name, value, placeholder, error }) => {
                 value={value}
                 onChange={handleChange}
             />
-            {error && <p className="error-text">{error}</p>}
-        </div>
+            {error &&<Typography
+              variant="h8"
+              color="red"
+              gutterBottom
+            > {error} </Typography>}
+        </>
     );
 };
 

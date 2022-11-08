@@ -14,11 +14,10 @@ function App() {
   return (
     <BrowserRouter>
     <UserContextProvider>
-      {/* <Nav /> */}
+        <Nav />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />
-        {/* <Route path='/messages' element={<Messages />}/> */}
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="*" element={<Notfound />} />
