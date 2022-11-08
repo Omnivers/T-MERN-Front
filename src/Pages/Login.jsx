@@ -1,9 +1,9 @@
-import { useFormik } from 'formik'
-import * as Yup from 'yup'
-import Input from '../Assets/Input/Input'
-import { useContext } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { login } from '../api/Auth'
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
+import Input from '../Assets/Input/Input';
+import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { login } from '../api/Auth';
 import { UserContext } from '../contexts/User'
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
@@ -11,6 +11,8 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
+import Grid from '@mui/material/Grid';
+import { Link} from 'react-router-dom';
 
 const Login = () => {
     const navigate = useNavigate()
@@ -71,6 +73,11 @@ const Login = () => {
                     handleChange={formik.handleChange}
                     error={formik.errors.password}
                 />
+            <Grid item>
+                <Link to={"/Register"} variant="body2">
+                  {"Vous n'avez pas de compte? Inscrivez-vous"}
+                </Link>
+            </Grid>
             <Button
               type="submit"
               fullWidth

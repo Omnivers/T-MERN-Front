@@ -7,18 +7,26 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
-import Input from "../Assets/Input/Input"
-// import { signup } from '../api/Auth'
+import Grid from '@mui/material/Grid';
+import { Link} from 'react-router-dom';
+import Input from "../Assets/Input/Input";
+import { signup } from '../api/Auth'
+import { useNavigate } from 'react-router-dom'
 
 
 
 export default function Register() {
+  const navigate = useNavigate()
   const formik = useFormik({
     initialValues: {
+        username:'',
         email: '',
         password: ''
     },
     validationSchema: Yup.object({
+        username: Yup.string()
+        .required('Your username is required')
+        .min(3, 'username trop court'),
         email: Yup.string()
             .required('Your email is required')
             .email('Your email is invalid'),
@@ -28,8 +36,9 @@ export default function Register() {
             .max(30),
     }),
     onSubmit: (values) => {
-        // signup(values)
-        console.log(values)
+          signup(values)
+          navigate('/Login')
+          
     },
 })
 
@@ -51,11 +60,17 @@ export default function Register() {
             Register
           </Typography>
           <Box component="form" onSubmit={formik.handleSubmit} noValidate sx={{ mt: 1 }}>
+          <Input
+                    type="text"
+                    name="username"
+                    placeholder="Username"
+                    handleChange={formik.handleChange}
+                    error={formik.errors.username}
+                />
             <Input
                     type="email"
                     name="email"
                     placeholder="Email"
-                    // value={formik.values.email}
                     handleChange={formik.handleChange}
                     error={formik.errors.email}
                 />
@@ -63,10 +78,14 @@ export default function Register() {
                     type="password"
                     name="password"
                     placeholder="Password"
-                    // value={formik.values.password}
                     handleChange={formik.handleChange}
                     error={formik.errors.password}
                 />
+              <Grid item>
+                <Link to={"/Login"} variant="body2">
+                  {"Vous avez déjà un compte? Connectez-vous"}
+                </Link>
+              </Grid>
             <Button
               type="submit"
               fullWidth
