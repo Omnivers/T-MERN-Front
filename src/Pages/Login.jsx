@@ -15,6 +15,7 @@ import Grid from '@mui/material/Grid';
 import { Link} from 'react-router-dom';
 import { useState } from 'react';
 
+// Login page
 const Login = () => {
     const [wrong,setWrong]=useState()
     const navigate = useNavigate()

@@ -1,3 +1,4 @@
+//Error landing page
 function Notfound(){
     return(
     <main className="head">

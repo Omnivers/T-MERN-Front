@@ -4,7 +4,7 @@ import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
 import { Link} from 'react-router-dom';
 
-
+// Homepage
 function Home() {
     return ( 
       <Box sx={{ mt: 15 }}>

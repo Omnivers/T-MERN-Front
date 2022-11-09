@@ -20,7 +20,7 @@ const style = {
     p: 4,
   };
   
-
+// Modification de produit
 const Product = (id) => {
     // const { user, token } = useContext(UserContext)
 

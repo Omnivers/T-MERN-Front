@@ -2,19 +2,21 @@ import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import Input from '../Assets/Input/Input'
 import { createProduct } from '../api/Products'
-import { useEffect, useContext } from 'react'
+// import { useEffect, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { UserContext } from '../contexts/User';
+// import { UserContext } from '../contexts/User';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import Grid from '@mui/material/Grid';
 
+
+
+// Creation de produit
 const Product = () => {
     const navigate = useNavigate()
-    const { user, token } = useContext(UserContext)
+    // const { user, token } = useContext(UserContext)
 
     // useEffect(() => {
     //     if (!user) {

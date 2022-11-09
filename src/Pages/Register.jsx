@@ -14,7 +14,7 @@ import { signup } from '../api/Auth'
 import { useNavigate } from 'react-router-dom'
 
 
-
+// Page d'inscription
 export default function Register() {
   const navigate = useNavigate()
   const formik = useFormik({

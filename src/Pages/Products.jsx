@@ -8,20 +8,23 @@ import AddIcon from '@mui/icons-material/Add';
 import { Box } from '@mui/material';
 import { Link} from 'react-router-dom';
 
+// Deploiment de tous les produits
 const Products = () => {
     const [products, setProducts] = useState(null)
 
+    // Fetch des products depuis notre DATABASE
     useEffect(() => {
-        fetchProduct()
+        fetchProduct() 
         // eslint-disable-next-line
     }, [])
-
+    
     const fetchProduct = async () => {
         const request = await allProduct()
         setProducts(request)
-        console.log(request)
+        // console.log(request)
     }
 
+    //Loading le temps que le fetch soit réalisé 
     if (!products) {
         return (
             <Box sx={{ display: 'flex' }}>

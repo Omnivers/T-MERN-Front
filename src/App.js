@@ -20,12 +20,11 @@ function App() {
   return (
     <BrowserRouter>
     <UserContextProvider>
-      {user ?(
+      {user ?( 
         <NavUser />
       ):(
         <NavGuest />
       )}
-      {console.log(user,token)}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />
@@ -33,8 +32,8 @@ function App() {
         <Route path="/edit" element={<Edit />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
-        <Route path="*" element={<Notfound />} />
-        <Route path="/profil" element={<Profil />} />
+        <Route path="*" element={<Notfound />} /> 
+        <Route path="/profil" element={<Profil />} /> 
       </Routes>
       </UserContextProvider>
     </BrowserRouter>

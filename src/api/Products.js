@@ -4,7 +4,7 @@ const deleteProduct = async (id) => {
       method: 'DELETE',
   })
   const response = await request.json()
-  console.log(response)
+  // console.log(response)
   return response
 }
 
@@ -19,7 +19,7 @@ const editProduct = async (id,values) => {
       body: JSON.stringify(values),
   })
   const response = await request.json()
-  console.log(response)
+  // console.log(response)
   return response
 }
 
@@ -35,7 +35,7 @@ const createProduct = async (values, token) => {
   })
 
   const response = await request.json()
-  console.log(response)
+  // console.log(response)
   return response
 }
 
