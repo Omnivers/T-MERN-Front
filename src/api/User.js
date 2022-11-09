@@ -1,6 +1,5 @@
 const me = async (token) => {
-    console.log(token)
-    const request = await fetch(``, {
+    const request = await fetch(`${process.env.REACT_APP_BACKEND}API/user`, {
         headers: {
             'Content-Type': 'application/json',
             Authorization: `Bearer ${token}`,
