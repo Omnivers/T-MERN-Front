@@ -18,7 +18,7 @@ export default function ComplexGrid({title,desc,img,price,ava,garantie,rating}) 
       sx={{
         p: 2,
         margin: 'auto',
-        mt:9,
+        mt:2,
         maxWidth: 500,
         flexGrow: 1,
         backgroundColor: (theme) =>
