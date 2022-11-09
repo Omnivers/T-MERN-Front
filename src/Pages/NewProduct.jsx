@@ -41,7 +41,8 @@ const Product = () => {
             .required('Please enter website')
         }),
         onSubmit: async (values) => {
-            await createProduct(values, token)
+            await createProduct(values)
+            navigate("/Products")
         },
     })
 
@@ -112,4 +113,4 @@ const Product = () => {
       </Container>
     )
 }
-export default Product
+export default Product;

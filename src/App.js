@@ -10,7 +10,8 @@ import Notfound from './Pages/Notfound';
 import Profil from './Pages/Profil';
 import Register from './Pages/Register';
 import Login from './Pages/Login';
-import CreateProduct from './Pages/CreateProduct';
+import Edit from './Pages/Edit'
+import NewProduct from './Pages/NewProduct';
 import { UserContextProvider,UserContext } from './contexts/User'
 import { useContext } from 'react';
 
@@ -28,7 +29,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />
-        <Route path="/newproduct" element={<CreateProduct />} />
+        <Route path="/newproduct" element={<NewProduct />} />
+        <Route path="/edit" element={<Edit />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="*" element={<Notfound />} />

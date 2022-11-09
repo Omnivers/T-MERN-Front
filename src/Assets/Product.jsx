@@ -4,6 +4,12 @@ import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import ButtonBase from '@mui/material/ButtonBase';
+import Button from '@mui/material/Button';
+import {deleteProduct,} from '../api/Products';
+import { useState } from 'react';
+import Edit from '../Pages/Edit';
+import Modal from '@mui/material/Modal';
+import EditIcon from '@mui/icons-material/Edit';
 
 const Img = styled('img')({
   margin: 'auto',
@@ -11,8 +17,26 @@ const Img = styled('img')({
   maxWidth: '100%',
   maxHeight: '100%',
 });
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  p: 4,
+};
 
-export default function ComplexGrid({title,desc,img,price,ava,garantie,rating}) {
+export default function ComplexGrid({id,title,desc,img,price,ava,garantie,rating,fetchProduct}) {
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);  
+  const Delete = async (id) => {
+    const request = await deleteProduct(id)
+     fetchProduct();
+  }
   return (
     <Paper
       sx={{
@@ -44,10 +68,19 @@ export default function ComplexGrid({title,desc,img,price,ava,garantie,rating}) 
                 Availability : {ava.toString()}
               </Typography>
             </Grid>
-            <Grid item>
-              <Typography sx={{ cursor: 'pointer' }} variant="body2">
+            <Grid sx={{m:2}}>
+              <Button onClick={()=>{Delete(id)}} variant="outlined" color="error">
                 Remove
-              </Typography>
+              </Button>
+              <Button onClick={handleOpen} variant="outlined" sx={{color:"black",border:"1px solid black", "&:hover":"black"}}>
+                <EditIcon />
+              </Button>
+              <Modal
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+              ><Edit id={id} /></Modal>
             </Grid>
           </Grid>
           <Grid item>
