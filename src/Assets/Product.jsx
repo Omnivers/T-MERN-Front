@@ -12,12 +12,13 @@ const Img = styled('img')({
   maxHeight: '100%',
 });
 
-export default function ComplexGrid() {
+export default function ComplexGrid({title,desc,img,price,ava,garantie,rating}) {
   return (
     <Paper
       sx={{
         p: 2,
         margin: 'auto',
+        mt:9,
         maxWidth: 500,
         flexGrow: 1,
         backgroundColor: (theme) =>
@@ -27,20 +28,20 @@ export default function ComplexGrid() {
       <Grid container spacing={2}>
         <Grid item>
           <ButtonBase sx={{ width: 128, height: 128 }}>
-            <Img alt="complex" src="/static/images/grid/complex.jpg" />
+            <Img alt={title} src={img} />
           </ButtonBase>
         </Grid>
         <Grid item xs={12} sm container>
           <Grid item xs container direction="column" spacing={2}>
             <Grid item xs>
               <Typography gutterBottom variant="subtitle1" component="div">
-                Standard license
+                {title}
               </Typography>
               <Typography variant="body2" gutterBottom>
-                Full resolution 1920x1080 • JPEG
+                {desc}
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                ID: 1030114
+                Availability : {ava.toString()}
               </Typography>
             </Grid>
             <Grid item>
@@ -51,7 +52,7 @@ export default function ComplexGrid() {
           </Grid>
           <Grid item>
             <Typography variant="subtitle1" component="div">
-              $19.00
+              {price}$
             </Typography>
           </Grid>
         </Grid>

@@ -38,7 +38,7 @@ const Login = () => {
           const  token = await login(values)
           setToken(token)
           if (token) {
-              navigate('/')
+              navigate('/Products')
           }else{
             setWrong("Wrong credentials ! Try again or create a new account")
           }
